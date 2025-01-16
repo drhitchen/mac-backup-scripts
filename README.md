@@ -11,10 +11,12 @@ A collection of bash scripts for managing backups and restores on macOS. These s
   - Dotfiles, config files, and data with `tar` and exclusion rules.
   - Installed Homebrew formulae and casks.
   - VSCode extensions and settings.
+  - Github repositories.
 - **Restore**:
   - Restore Homebrew formulae and casks.
   - Restore VSCode extensions and settings.
   - Restore dotfiles, configuration files, and user data with options for specific backups.
+  - Github repositories.
 
 ## Prerequisites
 
@@ -97,10 +99,6 @@ List the contents of the most recent backups:
 ```
 - `backup_type`: Optional. One of `dotfiles`, `config`, or `data`. Lists all if omitted.
 
-## License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
 ### 4. Backup and Restore GitHub Repositories
 
 #### Backup GitHub Repositories
@@ -125,3 +123,7 @@ Restore GitHub repositories from a previously generated backup script:
 **Examples**:
 - Backup: `./backup_git_repos.sh ~/projects ~/Backups`
 - Restore: `./restore_git_repos.sh ~/Backups/github_repos_backup_<DATE>.sh ~/restored_projects false`
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
