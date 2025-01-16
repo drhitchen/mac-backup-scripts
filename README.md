@@ -100,3 +100,28 @@ List the contents of the most recent backups:
 ## License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+### 4. Backup and Restore GitHub Repositories
+
+#### Backup GitHub Repositories
+Search for all Git repositories in the specified directory and generate a script to restore them:
+```bash
+./backup_git_repos.sh [search_dir] [backup_dir]
+```
+- `search_dir`: Optional. The directory to search for Git repositories (default: `~`).
+- `backup_dir`: Optional. The directory where the backup script is saved (default: `~/Backups`).
+
+The output is a script containing `git clone` commands for all found repositories, preserving the relative folder structure.
+
+#### Restore GitHub Repositories
+Restore GitHub repositories from a previously generated backup script:
+```bash
+./restore_git_repos.sh <backup_file> [restore_dir] [confirm]
+```
+- `backup_file`: Required. The backup file containing the `git clone` commands.
+- `restore_dir`: Optional. The directory where repositories are restored (default: `~`).
+- `confirm`: Optional. Whether to prompt before removing existing directories (`true` or `false`, default: `true`).
+
+**Examples**:
+- Backup: `./backup_git_repos.sh ~/projects ~/Backups`
+- Restore: `./restore_git_repos.sh ~/Backups/github_repos_backup_<DATE>.sh ~/restored_projects false`
