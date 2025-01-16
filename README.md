@@ -4,6 +4,7 @@ A collection of bash scripts for managing backups and restores on macOS. These s
 - Homebrew formulae and casks
 - VSCode extensions and configurations
 - Dotfiles, configuration files, and user data
+- Github repositories
 
 ## Features
 
