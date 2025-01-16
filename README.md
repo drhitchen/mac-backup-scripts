@@ -8,7 +8,7 @@ A collection of bash scripts for managing backups and restores on macOS. These s
 ## Features
 
 - **Backup**:
-  - Dotfiles, config files, and data with `gtar` and exclusion rules.
+  - Dotfiles, config files, and data with `tar` and exclusion rules.
   - Installed Homebrew formulae and casks.
   - VSCode extensions and settings.
 - **Restore**:
@@ -20,10 +20,6 @@ A collection of bash scripts for managing backups and restores on macOS. These s
 
 - **Homebrew**: Install from [brew.sh](https://brew.sh/).
 - **VSCode**: Install from [code.visualstudio.com](https://code.visualstudio.com/).
-- **GNU Tar (`gtar`)**:
-  ```bash
-  brew install gnu-tar
-  ```
 
 ## Installation
 

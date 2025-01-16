@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Ensure GNU Tar is installed
-if ! command -v gtar &> /dev/null; then
-    echo "GNU Tar (gtar) not found. Please install it with Homebrew: brew install gnu-tar"
-    exit 1
-fi
-
 # Variables
 DEFAULT_BACKUP_DIR=~/Backups
 DATE=$(date +%Y%m%d_%H%M%S)
@@ -60,7 +54,7 @@ backup_dotfiles() {
     local tar_file="$backup_dir/dotfiles_backup_$DATE.tgz"
     echo "Creating backup for dotfiles..."
     find "$HOME" -maxdepth 1 -type f -name ".*" -print0 | \
-        gtar "${EXCLUDES[@]}" --null --files-from=- -czvf "$tar_file"
+        tar "${EXCLUDES[@]}" --null --files-from=- -czvf "$tar_file"
     echo "Dotfiles backup completed: $tar_file"
 }
 
@@ -68,7 +62,7 @@ backup_dotfiles() {
 backup_config() {
     local tar_file="$backup_dir/config_backup_$DATE.tgz"
     echo "Creating backup for config files..."
-    gtar czvf "$tar_file" "${EXCLUDES[@]}" "${CONFIG_DIRS[@]}"
+    tar czvf "$tar_file" "${EXCLUDES[@]}" "${CONFIG_DIRS[@]}"
     echo "Config files backup completed: $tar_file"
 }
 
@@ -76,7 +70,7 @@ backup_config() {
 backup_data() {
     local tar_file="$backup_dir/data_backup_$DATE.tgz"
     echo "Creating backup for data..."
-    gtar czvf "$tar_file" "${EXCLUDES[@]}" "${DATA_DIRS[@]}"
+    tar czvf "$tar_file" "${EXCLUDES[@]}" "${DATA_DIRS[@]}"
     echo "Data backup completed: $tar_file"
 }
 

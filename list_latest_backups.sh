@@ -24,11 +24,11 @@ list_newest_backup() {
 
     echo "Contents of the newest $backup_type backup ($newest_file):"
     # List the contents of the tarball
-    gtar -tzvf "$newest_file"
+    tar -tzvf "$newest_file"
 
     # Calculate file count and total size
-    file_count=$(gtar -tzf "$newest_file" | wc -l)
-    total_size=$(gtar -tzvf "$newest_file" | awk '{sum += $3} END {print sum}')
+    file_count=$(tar -tzf "$newest_file" | wc -l)
+    total_size=$(tar -tzvf "$newest_file" | awk '{sum += $3} END {print sum}')
     echo "File count: $file_count"
     echo "Total size: $total_size bytes"
     echo "----------------------------------------"

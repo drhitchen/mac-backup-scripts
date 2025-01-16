@@ -45,11 +45,11 @@ restore_backup() {
     # If a specific path is provided, extract only that path
     if [[ -n $specific_path ]]; then
         echo "Restoring specific path: $specific_path"
-        gtar -xzvf "$backup_file" -C "$target_dir" --wildcards "$specific_path"
+        tar -xzvf "$backup_file" -C "$target_dir" --wildcards "$specific_path"
     else
         # Restore all contents
         echo "Restoring all contents to $target_dir"
-        gtar -xzvf "$backup_file" -C "$target_dir"
+        tar -xzvf "$backup_file" -C "$target_dir"
     fi
 
     echo "Restore for $backup_type completed."
